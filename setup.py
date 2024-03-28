@@ -40,10 +40,10 @@ BASE_WHEEL_URL = (
 
 # FORCE_BUILD: Force a fresh build locally, instead of attempting to find prebuilt wheels
 # SKIP_CUDA_BUILD: Intended to allow CI to use a simple `python setup.py sdist` run to copy over raw files, without any cuda compilation
-FORCE_BUILD = os.getenv("FLASH_ATTENTION_FORCE_BUILD", "FALSE") == "TRUE"
-SKIP_CUDA_BUILD = os.getenv("FLASH_ATTENTION_SKIP_CUDA_BUILD", "FALSE") == "TRUE"
+FORCE_BUILD = True
+SKIP_CUDA_BUILD = False
 # For CI, we want the option to build with C++11 ABI since the nvcr images use C++11 ABI
-FORCE_CXX11_ABI = os.getenv("FLASH_ATTENTION_FORCE_CXX11_ABI", "FALSE") == "TRUE"
+FORCE_CXX11_ABI = torch._C._GLIBCXX_USE_CXX11_ABI
 
 
 def get_platform():
@@ -151,22 +151,22 @@ if not SKIP_CUDA_BUILD:
                 "csrc/flash_attn/src/flash_fwd_hdim224_bf16_sm80.cu",
                 "csrc/flash_attn/src/flash_fwd_hdim256_fp16_sm80.cu",
                 "csrc/flash_attn/src/flash_fwd_hdim256_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim32_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim32_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim64_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim64_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim96_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim96_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim128_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim128_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim160_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim160_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim192_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim192_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim224_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim224_bf16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim256_fp16_sm80.cu",
-                "csrc/flash_attn/src/flash_bwd_hdim256_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim32_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim32_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim64_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim64_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim96_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim96_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim128_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim128_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim160_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim160_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim192_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim192_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim224_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim224_bf16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim256_fp16_sm80.cu",
+                # "csrc/flash_attn/src/flash_bwd_hdim256_bf16_sm80.cu",
                 "csrc/flash_attn/src/flash_fwd_split_hdim32_fp16_sm80.cu",
                 "csrc/flash_attn/src/flash_fwd_split_hdim32_bf16_sm80.cu",
                 "csrc/flash_attn/src/flash_fwd_split_hdim64_fp16_sm80.cu",
