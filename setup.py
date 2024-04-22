@@ -294,6 +294,6 @@ setup(
         "bdist_wheel": CachedWheelsCommand,
     },
     python_requires=">=3.8",
-    install_requires=["torch == 2.1.2"],
+    install_requires=["torch == 2.2.1"],
     setup_requires=["psutil"],
 )
