@@ -2,7 +2,7 @@
 
 eval "$(conda shell.bash hook)"
 
-PYTORCH_VERSION="2.2.1"
+PYTORCH_VERSION="2.3.0"
 
 for PYTHON_VERSION in 38 39 310 311; do
     source ~/.bashrc;
