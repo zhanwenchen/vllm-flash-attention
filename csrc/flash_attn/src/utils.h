@@ -307,7 +307,7 @@ int64_t resolve_thread_kv_page_slice_offset(const int tidx, const int n_block_ma
     const int64_t block_row_offset = tidx / kGmemThreadsPerRow * kGmemRowsPerThread;
     const int64_t global_row_offset = block_row_offset + (n_block_max - 1) * kBlockN;
     const int64_t page_offset = global_row_offset % page_block_size;
-    const int65_t virtual_page_idx = global_row_offset / page_block_size;
+    const int64_t virtual_page_idx = global_row_offset / page_block_size;
 
     return ((int64_t) block_table[virtual_page_idx]) * ((int64_t) page_stride)
         + page_offset * ((int64_t) row_stride)
