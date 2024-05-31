@@ -1,4 +1,4 @@
-__version__ = "2.5.8.post3"
+__version__ = "2.5.9"
 
 from vllm_flash_attn.flash_attn_interface import (
     flash_attn_func,
