@@ -109,6 +109,8 @@ cc_flag.append("-gencode")
 cc_flag.append("arch=compute_70,code=sm_70")
 cc_flag.append("-gencode")
 cc_flag.append("arch=compute_80,code=sm_80")
+cc_flag.append("-gencode")
+cc_flag.append("arch=compute_86,code=sm_86")
 if bare_metal_version >= Version("11.8"):
     cc_flag.append("-gencode")
     cc_flag.append("arch=compute_90,code=sm_90")
@@ -121,7 +123,7 @@ ext_modules.append(
             "decoder_masked_multihead_attention.cu",
         ],
         extra_compile_args={
-            "cxx": ["-O3", "-DENABLE_BF16"] + generator_flag,
+            "cxx": ["-O3", "-DENABLE_BF16", "-march=native"] + generator_flag,
             "nvcc": append_nvcc_threads(
                 [
                     "-DENABLE_BF16",  # TODO

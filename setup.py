@@ -307,6 +307,5 @@ setup(
     ext_modules=ext_modules,
     cmdclass={"build_ext": cmake_build_ext} if len(ext_modules) > 0 else {},
     python_requires=">=3.8",
-    install_requires=[f"torch == {PYTORCH_VERSION}"],
     setup_requires=["psutil"],
 )

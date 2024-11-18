@@ -107,6 +107,8 @@ cc_flag.append("-gencode")
 cc_flag.append("arch=compute_70,code=sm_70")
 cc_flag.append("-gencode")
 cc_flag.append("arch=compute_80,code=sm_80")
+cc_flag.append("-gencode")
+cc_flag.append("arch=compute_86,code=sm_86")
 if bare_metal_version >= Version("11.8"):
     cc_flag.append("-gencode")
     cc_flag.append("arch=compute_90,code=sm_90")
@@ -119,7 +121,7 @@ ext_modules.append(
             "xentropy_kernel.cu"
         ],
         extra_compile_args={
-            "cxx": ["-O3"] + generator_flag,
+            "cxx": ["-O3", "-march=native"] + generator_flag,
             "nvcc": append_nvcc_threads(
                 ["-O3"]
                 + generator_flag
