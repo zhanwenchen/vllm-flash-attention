@@ -272,7 +272,7 @@ if not SKIP_CUDA_BUILD and not IS_ROCM:
                 "csrc/flash_attn/src/flash_fwd_split_hdim256_bf16_causal_sm80.cu",
             ],
             extra_compile_args={
-                "cxx": ["-O3", "-std=c++17"] + generator_flag,
+                "cxx": ["-O3", "-std=c++17", "-march=native"] + generator_flag,
                 "nvcc": append_nvcc_threads(
                     [
                         "-O3",
@@ -390,7 +390,7 @@ elif not SKIP_CUDA_BUILD and IS_ROCM:
         cc_flag += ["-mllvm", "-amdgpu-coerce-illegal-types=1"]
 
     extra_compile_args = {
-        "cxx": ["-O3", "-std=c++17"] + generator_flag,
+        "cxx": ["-O3", "-std=c++17", "-march=native"] + generator_flag,
         "nvcc": cc_flag + generator_flag,
     }
 

@@ -123,7 +123,7 @@ ext_modules.append(
             "decoder_masked_multihead_attention.cu",
         ],
         extra_compile_args={
-            "cxx": ["-O3", "-DENABLE_BF16"] + generator_flag,
+            "cxx": ["-O3", "-DENABLE_BF16", "-march=native"] + generator_flag,
             "nvcc": append_nvcc_threads(
                 [
                     "-DENABLE_BF16",  # TODO

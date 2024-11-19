@@ -121,7 +121,7 @@ ext_modules.append(
             "xentropy_kernel.cu"
         ],
         extra_compile_args={
-            "cxx": ["-O3"] + generator_flag,
+            "cxx": ["-O3", "-march=native"] + generator_flag,
             "nvcc": append_nvcc_threads(
                 ["-O3"]
                 + generator_flag

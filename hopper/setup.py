@@ -212,7 +212,7 @@ if not SKIP_CUDA_BUILD:
             name="flashattn_hopper_cuda",
             sources=sources,
             extra_compile_args={
-                "cxx": ["-O3", "-std=c++17"],
+                "cxx": ["-O3", "-std=c++17", "-march=native"],
                 # "cxx": ["-O0", "-std=c++17"],
                 "nvcc": append_nvcc_threads(
                     nvcc_flags + cc_flag

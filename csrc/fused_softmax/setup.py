@@ -42,7 +42,7 @@ setup(
             name='fused_softmax_lib',
             sources=['fused_softmax.cpp', 'scaled_masked_softmax_cuda.cu', 'scaled_upper_triang_masked_softmax_cuda.cu'],
             extra_compile_args={
-                               'cxx': ['-O3',],
+                               'cxx': ['-O3', '-march=native'],
                                'nvcc': append_nvcc_threads(['-O3', '--use_fast_math'] + cc_flag)
                                }
             )
