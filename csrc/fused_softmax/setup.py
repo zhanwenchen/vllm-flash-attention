@@ -32,6 +32,8 @@ cc_flag.append("-gencode")
 cc_flag.append("arch=compute_70,code=sm_70")
 cc_flag.append("-gencode")
 cc_flag.append("arch=compute_80,code=sm_80")
+cc_flag.append("-gencode")
+cc_flag.append("arch=compute_86,code=sm_86")
 
 setup(
     name='fused_softmax_lib',
